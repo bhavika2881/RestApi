@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: bhavika2881/file
+        image: bhavika2881/file:master
         ports:
         - containerPort: 5500
