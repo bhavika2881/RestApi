@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileapp-service
+spec:
+  selector:
+    app: fileapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5500
+    nodePort: 31110
