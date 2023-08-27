@@ -55,7 +55,10 @@
       const formData = new FormData(uploadForm); 
   
       try {
-        const response = await fetch("http://localhost:5500/upload", {
+        const baseUrl = window.location.origin; // This will give you the base URL including the port
+
+
+        const response = await fetch(`${baseUrl}/upload`, {
           method: "POST",
           body: formData,
         });
@@ -78,7 +81,10 @@
       const filename = searchInput.value;
   
       try {
-        const response = await fetch(`http://localhost:5500/file/${filename}`);
+        const baseUrl = window.location.origin; // This will give you the base URL including the port
+
+// const response = await fetch(`${baseUrl}/files`);
+        const response = await fetch(`${baseUrl}/file/${filename}`);
         const fileData = await response.json();
   
         if (response.ok) {
@@ -108,7 +114,11 @@
 
     async function fetchFiles() {
       try {
-        const response = await fetch("http://localhost:5500/files");
+        const baseUrl = window.location.origin; // This will give you the base URL including the port
+
+const response = await fetch(`${baseUrl}/files`);
+
+        // const response = await fetch("http://localhost:5500/files");
         const files = await response.json();
 
         const listItems = files.map(file => {
@@ -143,17 +153,24 @@
 
     // Delete a file
     async function deleteFile(filename) {
-      try {
-        const response = await fetch(`http://localhost:5500/file/${filename}`, {
-          method: "DELETE"
-        });
-        const data = await response.json();
-        console.log(data.message);
-        fetchFiles(); 
-      } catch (error) {
-        console.error("Error deleting file:", error);
-      }
-    }
+  try {
+    const baseUrl = window.location.origin;
+    const url = `${baseUrl}/file/${filename}`;
+    console.log("Deleting file:", url);
+
+    const response = await fetch(url, {
+      method: "DELETE"
+    });
+
+    const data = await response.json();
+    console.log("Server response:", data.message);
+
+    fetchFiles();
+  } catch (error) {
+    console.error("Error deleting file:", error);
+  }
+}
+
     fetchFiles();
   </script>
 </body>
