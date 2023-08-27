@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodeapp-deployment
   labels:
-    app: nodeeapp
+    app: nodeapp
 spec:
   replicas: 1
   selector:
