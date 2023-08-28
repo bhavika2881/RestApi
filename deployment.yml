@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: fileapp-deployment
   labels:
-    app: nodeapp
+    app: fileapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: fileapp
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: fileapp 
     spec:
       containers:
-      - name: nodeserver
+      - name: fileserver
         image: bhavika2881/file:master
         ports:
         - containerPort: 5500
