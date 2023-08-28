@@ -115,9 +115,9 @@
         const response = await fetch(`${baseUrl}/files`);
         const files = await response.json();
 
-        const listItems = files.map(file => {
-          const listItem = document.createElement("li");
-          listItem.innerHTML = `
+        const listFiles = files.map(file => {
+          const listFile = document.createElement("li");
+          listFile.innerHTML = `
         <div class="file-info">
           <p class="file-info-filename">Filename:<span>${file.filename}</span></p>
           <p class="file-info-size">Size:<span>${file.size} bytes</span></p>
@@ -130,13 +130,13 @@
           deleteButton.textContent = "Delete";
           deleteButton.className = "btn btn-danger";
           deleteButton.addEventListener("click", () => deleteFile(file.filename));
-          listItem.appendChild(deleteButton);
+          listFile.appendChild(deleteButton);
 
-          return listItem;
+          return listFile;
         });
 
         fileList.innerHTML = "";
-        listItems.forEach(item => {
+        listFiles.forEach(item => {
           fileList.appendChild(item);
         });
       } catch (error) {
