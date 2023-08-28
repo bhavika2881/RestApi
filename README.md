@@ -35,27 +35,27 @@ Live Link : https://fileinfo.onrender.com/
 #### Post file
 
 ```http
-  POST /api/upload
+  POST http://localhost:5500/upload
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `upload` | `string` |  This will upload file.
+| `upload` | `file` |  This will upload file.
 
 #### Get all items
 
 ```http
-  GET /api/files
+  GET http://localhost:5500/files
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `files` | `string` |  This will return the list of all uploaded files.
+|  | `string` |  This will return the list of all uploaded files.
 
 #### Get item
 
 ```http
-  GET /api/file/${filename}
+  GET http://localhost:5500/file/${filename}
 ```
 
 | Parameter | Type     | Description                       |
@@ -65,7 +65,7 @@ Live Link : https://fileinfo.onrender.com/
 #### Delete file
 
 ```http
-  DELETE /api/file/:filename
+  DELETE http://localhost:5500/file/${filename}
 ```
 
 | Parameter | Type     | Description                |
